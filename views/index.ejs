@@ -28,13 +28,12 @@
                               </div>      
                         </div>
                         <div class="card-action">
-                            <b>Study:</b>
                             <ul class="collection">
-                                <li class="collection-item">HTML</li>
-                                <li class="collection-item">CSS</li>
-                                <li class="collection-item">JS</li>
-                                <li class="collection-item">OOP</li>
-                              </ul>
+                            <% console.log(tasks) %>
+                            <% tasks.forEach((task) => { %>
+                                <li class="collection-item"><%= task %></li> %>
+                            <% }) %>
+                            </ul>
                         </div>
                       </div>
                     </div>
