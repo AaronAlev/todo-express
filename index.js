@@ -34,13 +34,27 @@ const writeFile = (filename, data) => {
 app.get('/', (req, res) => {
     readFile('./tasks.json')
     .then(tasks => {
-        res.render('index', { tasks: tasks });
+        res.render('index', { 
+            tasks: tasks,
+            error: null
+        });
     });
 });
 
 app.use(express.urlencoded({extended: true}));
 
 app.post('/', (req, res) => {
+    let error = null;
+    if(req.body.task.trim().length == 0) {
+        error = 'Task cannot be empty';
+        readFile('./tasks.json')
+        .then(tasks => {
+            res.render('index', { 
+                tasks: tasks, 
+                error: error 
+            });
+        });
+    } else {
     readFile('./tasks.json')
     .then(tasks => {
         let index
@@ -58,6 +72,7 @@ app.post('/', (req, res) => {
         writeFile('./tasks.json', data);
         res.redirect('/');
     });
+    }   
 });
 
 app.get('/delete-task/:taskId', (req, res) => {
