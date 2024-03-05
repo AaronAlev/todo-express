@@ -75,6 +75,15 @@ app.get('/delete-task/:taskId', (req, res) => {
     })
 })
 
+app.get('/delete-all', (req, res) => {
+    // set tasks to empty
+    let tasks = [];
+    data = JSON.stringify(tasks, null, 2);
+    // write the empty tasks to the file
+    writeFile('./tasks.json', data);
+    res.redirect('/');
+})
+
 app.listen(3000, () => {
   console.log('Example app listening on port 3000!');
 });
