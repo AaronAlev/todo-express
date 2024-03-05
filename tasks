@@ -1,10 +1,14 @@
-Study HTML
-Study CSS
-Study JS
-Study OOP
-BABA
-BABA
-wow
-luls
-amongus
-Thingamajig
+[
+  {
+    "id": 1,
+    "task": "Study HTML"
+  },
+  {
+    "id": 2,
+    "task": "Study CSS"
+  },
+  {
+    "id": 3,
+    "task": "baba"
+  }
+]
